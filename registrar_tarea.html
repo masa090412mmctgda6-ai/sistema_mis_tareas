@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Registrar una nueva tarea">
+
+    <title>Registrar tarea | Mis Tareas</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="panel-body">
+
+    <header class="barra-superior">
+
+    <a href="profesor.html" class="logo-menu">
+        <img src="img/logo.png" alt="Logo Mis Tareas">
+    </a>
+
+    <nav aria-label="Navegación principal">
+
+        <a href="profesor.html">
+            Inicio
+        </a>
+
+        <a href="registrar_tarea.html" class="activo">
+            Registrar tarea
+        </a>
+
+        <a href="consultar_tareas.html">
+            Consultar tareas
+        </a>
+
+        <a href="profesor_perfil.html">
+            Perfil
+        </a>
+
+        <a href="index.html">
+            Salir
+        </a>
+
+    </nav>
+
+</header>
+
+
+    <!-- CONTENIDO -->
+    <main class="contenido-panel">
+
+        <section class="bienvenida">
+
+            <p class="etiqueta">
+                ADMINISTRACIÓN
+            </p>
+
+            <h1>
+                Registrar tarea
+            </h1>
+
+            <p>
+                Agrega una nueva actividad al sistema escolar.
+            </p>
+
+        </section>
+
+
+        <!-- FORMULARIO -->
+        <section class="formulario-tarea">
+
+            <form id="formularioTarea">
+
+                <div class="campo-formulario">
+
+                    <label for="materia">
+                        Materia
+                    </label>
+
+                    <select id="materia" required>
+
+                        <option value="">
+                            Selecciona una materia
+                        </option>
+
+                        <option value="Matemáticas">
+                            Matemáticas
+                        </option>
+
+                        <option value="Programación">
+                            Programación
+                        </option>
+
+                        <option value="Inglés">
+                            Inglés
+                        </option>
+
+                        <option value="Historia">
+                            Historia
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="nombreTarea">
+                        Nombre de la tarea
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombreTarea"
+                        placeholder="Ej. Resolver ejercicios"
+                        required>
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="fechaEntrega">
+                        Fecha de entrega
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fechaEntrega"
+                        required>
+
+                </div>
+
+
+                <div class="campo-formulario">
+
+                    <label for="descripcion">
+                        Descripción
+                    </label>
+
+                    <textarea
+                        id="descripcion"
+                        rows="5"
+                        placeholder="Escribe las indicaciones de la actividad..."
+                        required></textarea>
+
+                </div>
+
+
+                <div class="acciones-formulario">
+
+                    <button
+                        type="submit"
+                        class="boton">
+
+                        Registrar tarea
+
+                    </button>
+
+                    <a
+                        href="profesor.html"
+                        class="boton-volver">
+
+                        Cancelar
+
+                    </a>
+
+                </div>
+
+
+                <p
+                    id="mensajeRegistro"
+                    class="mensaje-tarea"
+                    aria-live="polite">
+                </p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE -->
+    <footer class="pie-panel">
+
+        <p>
+            © 2026 Mis Tareas · Sistema escolar
+        </p>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

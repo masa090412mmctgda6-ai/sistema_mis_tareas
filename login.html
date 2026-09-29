@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Inicio de sesión de Mis Tareas">
+
+    <title>
+        Iniciar sesión | Mis Tareas
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/estilos.css">
+
+</head>
+
+
+<body class="login-body">
+
+
+    <main class="login-contenedor">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="index.html"
+            class="login-logo">
+
+            <img
+                src="img/logo.png"
+                alt="Logo Mis Tareas">
+
+        </a>
+
+
+        <!-- TARJETA -->
+
+        <section class="login-tarjeta">
+
+
+            <p class="etiqueta">
+                MIS TAREAS
+            </p>
+
+
+            <h1>
+                Iniciar sesión
+            </h1>
+
+
+            <p class="login-descripcion">
+                Ingresa correctamente tu correo y contraseña
+                para acceder al área que te corresponde.
+            </p>
+
+
+            <!-- AVISO -->
+
+            <div class="aviso-login">
+
+                <strong>
+                    Acceso por área
+                </strong>
+
+                <p>
+                    Utiliza el correo correspondiente a tu área
+                    escolar. El sistema identificará automáticamente
+                    si eres estudiante, profesor o administrador.
+                </p>
+
+            </div>
+
+
+            <form id="formularioLogin">
+
+
+                <!-- CORREO -->
+
+                <div class="campo-formulario">
+
+                    <label for="correo">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        placeholder="correo@mistareas.com"
+                        required>
+
+                </div>
+
+
+                <!-- CONTRASEÑA -->
+
+                <div class="campo-formulario">
+
+                    <label for="contrasena">
+                        Contraseña
+                    </label>
+
+                    <input
+                        type="password"
+                        id="contrasena"
+                        placeholder="Escribe tu contraseña"
+                        required>
+
+                </div>
+
+
+                <!-- BOTÓN -->
+
+                <button
+                    type="submit"
+                    class="boton boton-login">
+
+                    Entrar al sistema
+
+                </button>
+
+
+                <!-- MENSAJE -->
+
+                <p
+                    id="mensaje"
+                    class="mensaje-login"
+                    aria-live="polite">
+                </p>
+
+
+            </form>
+
+
+            <!-- REGRESAR -->
+
+            <a
+                href="index.html"
+                class="volver-inicio">
+
+                ← Volver al inicio
+
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

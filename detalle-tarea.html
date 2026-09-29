@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Detalle de una tarea escolar">
+
+    <title>Detalle de tarea | Mis Tareas</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="panel-body">
+
+    <!-- ENCABEZADO -->
+    <header class="barra-superior">
+
+        <a href="estudiante.html" class="logo-menu">
+            <img src="img/logo.png" alt="Logo Mis Tareas">
+        </a>
+
+        <nav aria-label="Navegación principal">
+
+            <a href="estudiante.html">
+                Inicio
+            </a>
+
+            <a href="tareas.html" class="activo">
+                Mis tareas
+            </a>
+
+            <a href="buscar.html">
+                Buscar
+            </a>
+
+            <a href="fechas.html">
+                Fechas
+            </a>
+
+            <a href="perfil.html">
+                Perfil
+            </a>
+
+            <a href="index.html">
+                Salir
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTENIDO -->
+    <main class="contenido-panel">
+
+        <section class="detalle-tarea">
+
+            <!-- ENCABEZADO DE LA TAREA -->
+            <div class="detalle-encabezado">
+
+                <div>
+
+                    <p class="etiqueta">
+                        MATEMÁTICAS
+                    </p>
+
+                    <h1>
+                        Resolver ejercicios
+                    </h1>
+
+                    <p>
+                        Actividad correspondiente a la unidad actual.
+                    </p>
+
+                </div>
+
+                <span class="estado grande pendiente">
+                    Pendiente
+                </span>
+
+            </div>
+
+
+            <!-- INFORMACIÓN -->
+            <div class="informacion-tarea">
+
+                <article class="dato-tarea">
+
+                    <span>
+                        Materia
+                    </span>
+
+                    <strong>
+                        Matemáticas
+                    </strong>
+
+                </article>
+
+
+                <article class="dato-tarea">
+
+                    <span>
+                        Fecha de entrega
+                    </span>
+
+                    <strong>
+                        30/09/2026
+                    </strong>
+
+                </article>
+
+
+                <article class="dato-tarea">
+
+                    <span>
+                        Estado
+                    </span>
+
+                    <strong>
+                        Pendiente
+                    </strong>
+
+                </article>
+
+            </div>
+
+
+            <!-- DESCRIPCIÓN -->
+            <section class="descripcion-tarea">
+
+                <p class="etiqueta">
+                    DESCRIPCIÓN
+                </p>
+
+                <h2>
+                    Actividad
+                </h2>
+
+                <p>
+                    Resolver los ejercicios indicados en clase
+                    y presentar el procedimiento correspondiente.
+                </p>
+
+            </section>
+
+
+            <!-- ACCIONES -->
+            <div class="acciones-tarea">
+
+                <button
+                    type="button"
+                    class="boton"
+                    id="completarTarea">
+
+                    Marcar como realizada
+
+                </button>
+
+                <a
+                    href="tareas.html"
+                    class="boton-volver">
+
+                    ← Volver a mis tareas
+
+                </a>
+
+            </div>
+
+            <p
+                id="mensajeTarea"
+                class="mensaje-tarea"
+                aria-live="polite">
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE -->
+    <footer class="pie-panel">
+
+        <p>
+            © 2026 Mis Tareas · Sistema escolar
+        </p>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

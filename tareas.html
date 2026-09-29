@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Lista de tareas escolares">
+
+    <title>Mis tareas | Mis Tareas</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="panel-body">
+
+    <!-- ENCABEZADO -->
+    <header class="barra-superior">
+
+        <a href="estudiante.html" class="logo-menu">
+            <img src="img/logo.png" alt="Logo Mis Tareas">
+        </a>
+
+        <!-- MENÚ -->
+        <nav aria-label="Navegación principal">
+
+            <a href="estudiante.html">
+                Inicio
+            </a>
+
+            <a href="tareas.html" class="activo">
+                Mis tareas
+            </a>
+
+            <a href="buscar.html">
+                Buscar
+            </a>
+
+            <a href="fechas.html">
+                Fechas
+            </a>
+
+            <a href="perfil.html">
+                Perfil
+            </a>
+
+            <a href="index.html">
+                Salir
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido-panel">
+
+        <!-- TÍTULO -->
+        <section class="bienvenida">
+
+            <p class="etiqueta">
+                ORGANIZACIÓN
+            </p>
+
+            <h1>
+                Mis tareas
+            </h1>
+
+            <p>
+                Consulta tus actividades, fechas de entrega y estado.
+            </p>
+
+        </section>
+
+
+        <!-- BUSCADOR -->
+        <section class="buscador">
+
+            <label for="buscarTarea">
+                Buscar tarea
+            </label>
+
+            <div class="campo-busqueda">
+
+                <input
+                    type="search"
+                    id="buscarTarea"
+                    placeholder="Escribe el nombre de una tarea..."
+                >
+
+                <button
+                    type="button"
+                    class="boton-secundario"
+                    onclick="buscarTarea()">
+                    Buscar
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- TABLA -->
+        <section class="tabla-contenedor">
+
+            <div class="titulo-seccion">
+
+                <div>
+
+                    <p class="etiqueta">
+                        ACTIVIDADES
+                    </p>
+
+                    <h2>
+                        Lista de tareas
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="tabla-scroll">
+
+                <table id="tablaTareas">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Materia</th>
+
+                            <th>Tarea</th>
+
+                            <th>Fecha de entrega</th>
+
+                            <th>Estado</th>
+
+                            <th>Acción</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>Matemáticas</td>
+
+                            <td>Resolver ejercicios</td>
+
+                            <td>30/09/2026</td>
+
+                            <td>
+                                <span class="estado pendiente">
+                                    Pendiente
+                                </span>
+                            </td>
+
+                            <td>
+                                <a
+                                    href="detalle-tarea.html"
+                                    class="boton-tabla">
+                                    Ver
+                                </a>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Programación</td>
+
+                            <td>Crear página web</td>
+
+                            <td>02/10/2026</td>
+
+                            <td>
+                                <span class="estado proxima">
+                                    Próxima
+                                </span>
+                            </td>
+
+                            <td>
+                                <a
+                                    href="detalle-tarea.html"
+                                    class="boton-tabla">
+                                    Ver
+                                </a>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Inglés</td>
+
+                            <td>Realizar actividad</td>
+
+                            <td>04/10/2026</td>
+
+                            <td>
+                                <span class="estado pendiente">
+                                    Pendiente
+                                </span>
+                            </td>
+
+                            <td>
+                                <a
+                                    href="detalle-tarea.html"
+                                    class="boton-tabla">
+                                    Ver
+                                </a>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Historia</td>
+
+                            <td>Investigación</td>
+
+                            <td>06/10/2026</td>
+
+                            <td>
+                                <span class="estado entregada">
+                                    Entregada
+                                </span>
+                            </td>
+
+                            <td>
+                                <a
+                                    href="detalle-tarea.html"
+                                    class="boton-tabla">
+                                    Ver
+                                </a>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                    <tfoot>
+
+                        <tr>
+
+                            <td colspan="5">
+                                Total de tareas: 4
+                            </td>
+
+                        </tr>
+
+                    </tfoot>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie-panel">
+
+        <p>
+            © 2026 Mis Tareas · Sistema escolar
+        </p>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

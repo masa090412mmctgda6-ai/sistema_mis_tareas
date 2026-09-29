@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Panel del administrador">
+
+    <title>Administrador | Mis Tareas</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="panel-body">
+
+    <!-- ENCABEZADO -->
+<header class="barra-superior">
+
+    <a href="administrador.html" class="logo-menu">
+        <img src="img/logo.png" alt="Logo Mis Tareas">
+    </a>
+
+    <nav aria-label="Navegación principal">
+
+        <a href="administrador.html">
+            Inicio
+        </a>
+
+        <a href="administrador.html#tablaUsuarios">
+            Usuarios
+        </a>
+
+        <a href="administrador_perfil.html">
+            Perfil
+        </a>
+
+        <a href="index.html">
+            Salir
+        </a>
+
+    </nav>
+
+</header>
+
+
+    <!-- CONTENIDO -->
+    <main class="contenido-panel">
+
+        <section class="bienvenida">
+
+            <p class="etiqueta">
+                ADMINISTRACIÓN DEL SISTEMA
+            </p>
+
+            <h1>
+                Panel del administrador
+            </h1>
+
+            <p>
+                Consulta la información general y administra los usuarios del sistema.
+            </p>
+
+        </section>
+
+
+        <!-- ESTADÍSTICAS -->
+        <section class="resumen-admin">
+
+            <article class="tarjeta-admin">
+
+                <span>
+                    Estudiantes
+                </span>
+
+                <strong>
+                    25
+                </strong>
+
+                <p>
+                    Usuarios registrados
+                </p>
+
+            </article>
+
+
+            <article class="tarjeta-admin">
+
+                <span>
+                    Profesores
+                </span>
+
+                <strong>
+                    8
+                </strong>
+
+                <p>
+                    Docentes registrados
+                </p>
+
+            </article>
+
+
+            <article class="tarjeta-admin">
+
+                <span>
+                    Tareas
+                </span>
+
+                <strong>
+                    40
+                </strong>
+
+                <p>
+                    Actividades registradas
+                </p>
+
+            </article>
+
+
+            <article class="tarjeta-admin">
+
+                <span>
+                    Usuarios activos
+                </span>
+
+                <strong>
+                    33
+                </strong>
+
+                <p>
+                    Cuentas activas
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- USUARIOS -->
+        <section class="tabla-contenedor">
+
+            <div class="titulo-seccion">
+
+                <div>
+
+                    <p class="etiqueta">
+                        USUARIOS
+                    </p>
+
+                    <h2>
+                        Usuarios registrados
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="tabla-scroll">
+
+                <table id="tablaUsuarios">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Nombre
+                            </th>
+
+                            <th>
+                                Correo
+                            </th>
+
+                            <th>
+                                Tipo de usuario
+                            </th>
+
+                            <th>
+                                Estado
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Adriana Mateo
+                            </td>
+
+                            <td>
+                                estudiante@mistareas.com
+                            </td>
+
+                            <td>
+                                Estudiante
+                            </td>
+
+                            <td>
+                                <span class="estado entregada">
+                                    Activo
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Profesor Ejemplo
+                            </td>
+
+                            <td>
+                                profesor@mistareas.com
+                            </td>
+
+                            <td>
+                                Profesor
+                            </td>
+
+                            <td>
+                                <span class="estado entregada">
+                                    Activo
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Administrador
+                            </td>
+
+                            <td>
+                                admin@mistareas.com
+                            </td>
+
+                            <td>
+                                Administrador
+                            </td>
+
+                            <td>
+                                <span class="estado entregada">
+                                    Activo
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE -->
+    <footer class="pie-panel">
+
+        <p>
+            © 2026 Mis Tareas · Sistema escolar
+        </p>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

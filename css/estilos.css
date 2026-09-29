@@ -1,0 +1,3210 @@
+/* PALETA */
+:root{
+--azul:#C7D3DB;--beige:#A79A8A;--crema:#FCF7DF;--cafe:#3E3630;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;color:var(--cafe);background:var(--crema);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+header{padding:18px 6%}
+header img{width:150px;transition:.3s}
+header img:hover{transform:scale(1.04)}
+main{min-height:calc(100vh - 125px);display:grid;place-items:center;padding:30px 6%}
+.hero{text-align:center;max-width:760px;animation:aparecer .9s ease}
+.etiqueta{letter-spacing:4px;font-size:.78rem;font-weight:bold;color:var(--beige);margin-bottom:14px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(3rem,8vw,6rem);margin-bottom:22px}
+.hero p:not(.etiqueta){font-size:1.08rem;line-height:1.7;margin-bottom:32px}
+.boton{display:inline-block;border:2px solid var(--cafe);background:var(--cafe);color:var(--crema);padding:14px 28px;border-radius:999px;font-weight:bold;cursor:pointer;transition:.25s}
+.boton:hover{transform:translateY(-4px);box-shadow:0 12px 25px #3E363033}
+.fondo{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.fondo span{position:absolute;width:180px;height:180px;border-radius:50%;background:var(--azul);opacity:.16;animation:flotar 12s ease-in-out infinite}
+.fondo span:nth-child(1){left:8%;top:12%}.fondo span:nth-child(2){right:10%;top:25%;width:120px;height:120px;background:var(--beige);animation-delay:-3s}.fondo span:nth-child(3){left:20%;bottom:8%;width:140px;height:140px;animation-delay:-6s}.fondo span:nth-child(4){right:20%;bottom:12%;width:210px;height:210px;background:var(--azul);animation-delay:-9s}
+.centrado{min-height:100vh!important}
+.tarjeta{width:min(100%,460px);padding:38px;background:#FFFFFF99;border:1px solid #3E36301F;border-radius:24px;box-shadow:0 18px 50px #3E363024;backdrop-filter:blur(8px);animation:aparecer .7s ease}
+.logo{display:block;width:170px;max-width:70%;margin:0 auto 20px}
+.tarjeta h1{text-align:center;font-size:2.4rem;margin-bottom:25px}
+form{display:grid;gap:10px}
+label{font-weight:bold;margin-top:5px}
+input{padding:13px 14px;border:1px solid var(--beige);border-radius:10px;background:var(--crema);font-size:1rem}
+input:focus{outline:3px solid #C7D3DBB3;border-color:var(--cafe)}
+form .boton{margin-top:12px}
+#mensaje{text-align:center;min-height:22px}
+.tarjeta>a{display:block;text-align:center;margin-top:20px;text-decoration:underline}
+footer{text-align:center;padding:18px;font-size:.85rem}
+@keyframes aparecer{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes flotar{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(25px,-30px) scale(1.08)}}
+@media(max-width:600px){header{text-align:center}header img{width:125px}.hero h1{font-size:3.3rem}.hero p:not(.etiqueta){font-size:1rem}.tarjeta{padding:28px 22px}}
+
+/* =========================
+   PÁGINA DE TAREAS
+   ========================= */
+
+.buscador {
+    margin-bottom: 35px;
+    padding: 22px;
+    background: rgba(255, 255, 255, 0.58);
+    border-radius: 18px;
+    border: 1px solid rgba(62, 54, 48, 0.10);
+}
+
+.buscador label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.campo-busqueda {
+    display: flex;
+    gap: 10px;
+}
+
+.campo-busqueda input {
+    flex: 1;
+}
+
+.campo-busqueda button {
+    border: none;
+}
+
+.tabla-contenedor {
+    width: 100%;
+}
+
+.tabla-scroll {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(62, 54, 48, 0.08);
+}
+
+table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.65);
+}
+
+thead {
+    background: var(--cafe);
+    color: var(--crema);
+}
+
+th,
+td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(62, 54, 48, 0.10);
+}
+
+th {
+    font-size: 0.9rem;
+}
+
+tbody tr {
+    transition: 0.25s ease;
+}
+
+tbody tr:hover {
+    background: rgba(199, 211, 219, 0.35);
+}
+
+tfoot {
+    background: rgba(167, 154, 138, 0.18);
+    font-weight: bold;
+}
+
+.estado {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: bold;
+}
+
+.pendiente {
+    background: var(--beige);
+    color: var(--crema);
+}
+
+.proxima {
+    background: var(--azul);
+    color: var(--cafe);
+}
+
+.entregada {
+    background: var(--crema);
+    border: 1px solid var(--beige);
+    color: var(--cafe);
+}
+
+.boton-tabla {
+    display: inline-block;
+    padding: 7px 13px;
+    background: var(--cafe);
+    color: var(--crema);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: bold;
+    transition: 0.25s ease;
+}
+
+.boton-tabla:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+
+    .campo-busqueda {
+        flex-direction: column;
+    }
+
+    .campo-busqueda button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================
+   DETALLE DE TAREA
+   ========================= */
+
+.detalle-tarea {
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(62, 54, 48, 0.10);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(62, 54, 48, 0.08);
+    animation: aparecer 0.7s ease both;
+}
+
+.detalle-encabezado {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 25px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(62, 54, 48, 0.12);
+}
+
+.detalle-encabezado h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    margin-bottom: 10px;
+}
+
+.detalle-encabezado p:not(.etiqueta) {
+    line-height: 1.6;
+}
+
+.estado.grande {
+    flex-shrink: 0;
+    padding: 9px 15px;
+}
+
+.informacion-tarea {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.dato-tarea {
+    padding: 20px;
+    background: rgba(199, 211, 219, 0.30);
+    border-radius: 16px;
+    transition: transform 0.25s ease;
+}
+
+.dato-tarea:hover {
+    transform: translateY(-4px);
+}
+
+.dato-tarea span {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--beige);
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.dato-tarea strong {
+    font-size: 1rem;
+}
+
+.descripcion-tarea {
+    padding: 25px 0;
+    border-top: 1px solid rgba(62, 54, 48, 0.10);
+    border-bottom: 1px solid rgba(62, 54, 48, 0.10);
+}
+
+.descripcion-tarea h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.descripcion-tarea > p:last-child {
+    line-height: 1.7;
+}
+
+.acciones-tarea {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.boton-volver {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 1px solid var(--cafe);
+    border-radius: 999px;
+    font-weight: bold;
+    transition: 0.25s ease;
+}
+
+.boton-volver:hover {
+    background: var(--cafe);
+    color: var(--crema);
+}
+
+.mensaje-tarea {
+    margin-top: 18px;
+    font-weight: bold;
+    min-height: 24px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+
+    .detalle-tarea {
+        padding: 28px 22px;
+    }
+
+    .detalle-encabezado {
+        flex-direction: column;
+    }
+
+    .informacion-tarea {
+        grid-template-columns: 1fr;
+    }
+
+    .acciones-tarea {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .acciones-tarea .boton,
+    .boton-volver {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+/* =========================
+   BUSCAR TAREAS
+   ========================= */
+
+.filtros-busqueda {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+
+    margin-bottom: 35px;
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.58);
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    box-shadow: 0 10px 28px rgba(62, 54, 48, 0.06);
+}
+
+.filtro label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.filtro input,
+.filtro select {
+    width: 100%;
+}
+
+.filtros-busqueda .boton {
+    border: none;
+    white-space: nowrap;
+}
+
+.lista-resultados {
+    display: grid;
+    gap: 15px;
+}
+
+.resultado-tarea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    padding: 22px;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    transition: 0.25s ease;
+}
+
+.resultado-tarea:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(62, 54, 48, 0.08);
+}
+
+.materia-resultado {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--beige);
+
+    font-size: 0.8rem;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.resultado-tarea h3 {
+    margin-bottom: 6px;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.resultado-tarea p {
+    margin: 0;
+
+    font-size: 0.9rem;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    .filtros-busqueda {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filtros-busqueda .boton {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .filtros-busqueda {
+        grid-template-columns: 1fr;
+    }
+
+    .resultado-tarea {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
+
+/* =========================
+   FECHAS DE ENTREGA
+   ========================= */
+
+.fechas-contenedor {
+    width: 100%;
+}
+
+.lista-fechas {
+    display: grid;
+    gap: 16px;
+}
+
+.fecha-tarea {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    gap: 22px;
+
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 20px;
+
+    transition: 0.25s ease;
+}
+
+.fecha-tarea:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(62, 54, 48, 0.08);
+}
+
+.fecha-numero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+
+    background: var(--cafe);
+    color: var(--crema);
+
+    border-radius: 18px;
+}
+
+.fecha-numero strong {
+    font-size: 1.7rem;
+    line-height: 1;
+}
+
+.fecha-numero span {
+    margin-top: 5px;
+
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.fecha-informacion h3 {
+    margin: 3px 0 5px;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.fecha-informacion p {
+    margin: 0;
+
+    font-size: 0.9rem;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+
+    .fecha-tarea {
+        grid-template-columns: 65px 1fr;
+    }
+
+    .fecha-numero {
+        width: 60px;
+        height: 60px;
+    }
+
+    .fecha-tarea .estado {
+        grid-column: 2;
+        justify-self: start;
+    }
+
+}
+
+/* =========================
+   PERFIL
+   ========================= */
+
+.perfil-contenedor {
+    background: rgba(255, 255, 255, 0.62);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 24px;
+
+    padding: 40px;
+
+    box-shadow: 0 15px 40px rgba(62, 54, 48, 0.08);
+
+    animation: aparecer 0.7s ease both;
+}
+
+.perfil-cabecera {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid rgba(62, 54, 48, 0.10);
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 85px;
+    height: 85px;
+
+    background: var(--cafe);
+    color: var(--crema);
+
+    border-radius: 50%;
+
+    font-size: 2rem;
+    font-weight: bold;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.perfil-cabecera h2 {
+    margin-bottom: 5px;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.perfil-cabecera p:last-child {
+    margin: 0;
+}
+
+.datos-perfil {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin: 30px 0;
+}
+
+.dato-perfil {
+    padding: 20px;
+
+    background: rgba(199, 211, 219, 0.30);
+
+    border-radius: 16px;
+
+    transition: 0.25s ease;
+}
+
+.dato-perfil:hover {
+    transform: translateY(-4px);
+}
+
+.dato-perfil span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--beige);
+
+    font-size: 0.78rem;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.dato-perfil strong {
+    font-size: 1rem;
+}
+
+.resumen-perfil {
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(62, 54, 48, 0.10);
+}
+
+.resumen-perfil h2 {
+    margin-bottom: 20px;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.estadisticas-perfil {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.estadistica {
+    text-align: center;
+
+    padding: 22px;
+
+    background: rgba(252, 247, 223, 0.75);
+
+    border-radius: 18px;
+
+    transition: 0.25s ease;
+}
+
+.estadistica:hover {
+    transform: translateY(-4px);
+}
+
+.estadistica strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 2rem;
+}
+
+.estadistica span {
+    font-size: 0.85rem;
+}
+
+.acciones-perfil {
+    margin-top: 30px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .perfil-contenedor {
+        padding: 28px 20px;
+    }
+
+    .datos-perfil {
+        grid-template-columns: 1fr;
+    }
+
+    .estadisticas-perfil {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-cabecera {
+        align-items: flex-start;
+    }
+
+}
+
+/* =========================
+   PANEL DEL PROFESOR
+   ========================= */
+
+.resumen-profesor {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+}
+
+.tarjeta-profesor {
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(62, 54, 48, 0.06);
+
+    transition: 0.25s ease;
+}
+
+.tarjeta-profesor:hover {
+    transform: translateY(-5px);
+}
+
+.tarjeta-profesor span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--beige);
+
+    font-size: 0.8rem;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.tarjeta-profesor strong {
+    font-size: 2.3rem;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .resumen-profesor {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================
+   REGISTRAR TAREA
+   ========================= */
+
+.formulario-tarea {
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 24px;
+
+    box-shadow: 0 15px 40px rgba(62, 54, 48, 0.08);
+
+    animation: aparecer 0.7s ease both;
+}
+
+.campo-formulario {
+    margin-bottom: 22px;
+}
+
+.campo-formulario label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+}
+
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid rgba(62, 54, 48, 0.20);
+
+    border-radius: 12px;
+
+    background: var(--crema);
+
+    color: var(--cafe);
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+.campo-formulario textarea {
+    resize: vertical;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
+    border-color: var(--cafe);
+
+    box-shadow: 0 0 0 3px rgba(199, 211, 219, 0.55);
+}
+
+.acciones-formulario {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+    flex-wrap: wrap;
+}
+
+.acciones-formulario .boton {
+    border: none;
+}
+
+@media (max-width: 600px) {
+
+    .formulario-tarea {
+        padding: 25px 20px;
+    }
+
+    .acciones-formulario {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .acciones-formulario .boton,
+    .acciones-formulario .boton-volver {
+        width: 100%;
+
+        text-align: center;
+    }
+
+}
+
+/* =========================
+   CONSULTAR TAREAS
+   ========================= */
+
+.filtros-consulta {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr auto;
+
+    gap: 15px;
+
+    align-items: end;
+
+    margin-bottom: 35px;
+
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.58);
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    box-shadow: 0 10px 28px rgba(62, 54, 48, 0.06);
+}
+
+.filtros-consulta label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+}
+
+.filtros-consulta select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid rgba(62, 54, 48, 0.20);
+
+    border-radius: 12px;
+
+    background: var(--crema);
+
+    color: var(--cafe);
+
+    font-family: inherit;
+
+    font-size: 1rem;
+}
+
+.filtros-consulta .boton {
+    border: none;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .filtros-consulta {
+        grid-template-columns: 1fr;
+    }
+
+    .filtros-consulta .boton {
+        width: 100%;
+    }
+
+}
+
+/* =========================
+   PANEL DEL ADMINISTRADOR
+   ========================= */
+
+.resumen-admin {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+}
+
+.tarjeta-admin {
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(62, 54, 48, 0.06);
+
+    transition: 0.25s ease;
+}
+
+.tarjeta-admin:hover {
+    transform: translateY(-5px);
+}
+
+.tarjeta-admin span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--beige);
+
+    font-size: 0.78rem;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.tarjeta-admin strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 2.2rem;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.tarjeta-admin p {
+    margin: 0;
+
+    font-size: 0.85rem;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .resumen-admin {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .resumen-admin {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================
+   INICIO DE SESIÓN
+   ========================= */
+
+.login-body {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(199, 211, 219, 0.75),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(167, 154, 138, 0.35),
+            transparent 35%
+        ),
+        var(--crema);
+}
+
+.login-contenedor {
+    width: 100%;
+    max-width: 480px;
+
+    animation: aparecer 0.8s ease both;
+}
+
+/* LOGO DEL LOGIN */
+
+.login-logo {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-logo img {
+    width: 165px;
+    height: 165px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 10px 28px rgba(62, 54, 48, 0.12);
+    animation: aparecerLogo 1s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.login-logo img:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 16px 35px rgba(62, 54, 48, 0.18);
+}
+
+.login-tarjeta {
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.70);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 50px rgba(62, 54, 48, 0.10);
+
+    backdrop-filter: blur(8px);
+}
+
+.login-tarjeta h1 {
+    margin-bottom: 10px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 2.5rem;
+}
+
+.login-descripcion {
+    margin-bottom: 30px;
+
+    line-height: 1.6;
+}
+
+.boton-login {
+    width: 100%;
+
+    border: none;
+
+    margin-top: 8px;
+}
+
+.mensaje-login {
+    min-height: 24px;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    font-weight: bold;
+}
+
+.volver-inicio {
+    display: block;
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    transition: 0.25s ease;
+}
+
+.volver-inicio:hover {
+    transform: translateX(-3px);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 550px) {
+
+    .login-body {
+        padding: 20px;
+    }
+
+    .login-tarjeta {
+        padding: 28px 22px;
+    }
+
+    .login-tarjeta h1 {
+        font-size: 2rem;
+    }
+
+}
+
+
+
+
+
+/* =========================
+   ESTILOS GENERALES DEL PANEL
+   ========================= */
+
+.panel-body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(199, 211, 219, 0.35),
+            transparent 35%
+        ),
+        var(--crema);
+}
+
+
+/* =========================
+   BARRA SUPERIOR
+   ========================= */
+
+.barra-superior {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 15px 6%;
+
+    background: rgba(252, 247, 223, 0.90);
+
+    border-bottom: 1px solid rgba(62, 54, 48, 0.10);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 5px 20px rgba(62, 54, 48, 0.06);
+}
+
+
+/* LOGO DEL MENÚ */
+
+.logo-menu {
+    display: block;
+    width: 105px;
+    flex-shrink: 0;
+}
+
+.logo-menu img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   MENÚ
+   ========================= */
+
+.barra-superior nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+.barra-superior nav a {
+    display: inline-block;
+
+    padding: 10px 14px;
+
+    border-radius: 999px;
+
+    font-size: 0.9rem;
+
+    font-weight: bold;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.barra-superior nav a:hover {
+    background: var(--azul);
+
+    transform: translateY(-2px);
+}
+
+.barra-superior nav a.activo {
+    background: var(--cafe);
+
+    color: var(--crema);
+}
+
+
+/* =========================
+   CONTENIDO DEL PANEL
+   ========================= */
+
+.contenido-panel {
+    width: min(1200px, 88%);
+
+    margin: 0 auto;
+
+    padding: 70px 0;
+
+    display: block;
+
+    min-height: auto;
+}
+
+
+/* =========================
+   BIENVENIDA
+   ========================= */
+
+.bienvenida {
+    margin-bottom: 45px;
+
+    animation: aparecer 0.7s ease both;
+}
+
+.bienvenida h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+
+    margin-bottom: 15px;
+}
+
+.bienvenida p:not(.etiqueta) {
+    max-width: 700px;
+
+    line-height: 1.7;
+
+    font-size: 1.05rem;
+}
+
+
+/* =========================
+   BOTONES
+   ========================= */
+
+.boton {
+    display: inline-block;
+
+    border: 2px solid var(--cafe);
+
+    background: var(--cafe);
+
+    color: var(--crema);
+
+    padding: 13px 25px;
+
+    border-radius: 999px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.boton:hover {
+    background: var(--beige);
+
+    border-color: var(--beige);
+
+    color: var(--crema);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(62, 54, 48, 0.15);
+}
+
+.boton-secundario {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    border: 2px solid var(--cafe);
+
+    background: transparent;
+
+    color: var(--cafe);
+
+    border-radius: 999px;
+
+    font-weight: bold;
+
+    transition: 0.25s ease;
+}
+
+.boton-secundario:hover {
+    background: var(--cafe);
+
+    color: var(--crema);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   PIE DE PÁGINA
+   ========================= */
+
+.pie-panel {
+    padding: 25px;
+
+    margin-top: 20px;
+
+    border-top: 1px solid rgba(62, 54, 48, 0.10);
+
+    color: var(--beige);
+}
+
+
+/* =========================
+   SELECT
+   ========================= */
+
+select {
+    padding: 13px 15px;
+
+    border: 1px solid var(--beige);
+
+    border-radius: 12px;
+
+    background: var(--crema);
+
+    color: var(--cafe);
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    outline: none;
+}
+
+select:focus {
+    border-color: var(--cafe);
+
+    box-shadow:
+        0 0 0 3px rgba(199, 211, 219, 0.55);
+}
+
+
+/* =========================
+   RESPONSIVE DEL MENÚ
+   ========================= */
+
+@media (max-width: 850px) {
+
+    .barra-superior {
+        flex-direction: column;
+
+        align-items: center;
+
+        padding: 18px 5%;
+    }
+
+    .barra-superior nav {
+        justify-content: center;
+    }
+
+    .contenido-panel {
+        width: 90%;
+
+        padding: 50px 0;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .barra-superior nav {
+        gap: 5px;
+    }
+
+    .barra-superior nav a {
+        padding: 8px 10px;
+
+        font-size: 0.8rem;
+    }
+
+    .logo-menu {
+        width: 90px;
+    }
+
+}
+
+
+
+/* =========================
+   ESTUDIANTE - RESUMEN
+   ========================= */
+
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 60px;
+}
+
+.tarjeta-resumen {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(62, 54, 48, 0.10);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(62, 54, 48, 0.07);
+    transition: 0.3s ease;
+}
+
+.tarjeta-resumen:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(62, 54, 48, 0.12);
+}
+
+.tarjeta-resumen .numero {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--cafe);
+    margin-bottom: 8px;
+}
+
+.tarjeta-resumen h2 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.tarjeta-resumen p {
+    margin: 0;
+    color: var(--beige);
+    line-height: 1.5;
+}
+
+
+/* =========================
+   SECCIÓN DE TAREAS
+   ========================= */
+
+.seccion-tareas {
+    margin-bottom: 60px;
+}
+
+.titulo-seccion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.titulo-seccion h2 {
+    margin: 5px 0 0;
+    font-size: 2rem;
+}
+
+
+/* =========================
+   LISTA DE TAREAS
+   ========================= */
+
+.lista-tareas {
+    display: grid;
+    gap: 18px;
+}
+
+.tarea-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.60);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 22px;
+
+    box-shadow: 0 8px 25px rgba(62, 54, 48, 0.06);
+
+    transition: 0.3s ease;
+}
+
+.tarea-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(62, 54, 48, 0.10);
+}
+
+.tarea-card h3 {
+    margin: 10px 0 8px;
+    font-size: 1.25rem;
+}
+
+.tarea-card p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.tarea-card small {
+    color: var(--beige);
+}
+
+
+/* =========================
+   ESTADOS DE LAS TAREAS
+   ========================= */
+
+.estado {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    font-size: 0.78rem;
+
+    font-weight: bold;
+}
+
+.estado.pendiente {
+    background: var(--azul);
+    color: var(--cafe);
+}
+
+.estado.realizada {
+    background: var(--beige);
+    color: var(--crema);
+}
+
+
+/* =========================
+   ACCESOS RÁPIDOS
+   ========================= */
+
+.accesos-rapidos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 30px;
+}
+
+.acceso-card {
+    padding: 30px;
+
+    background: var(--azul);
+
+    border-radius: 24px;
+
+    box-shadow: 0 10px 30px rgba(62, 54, 48, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.acceso-card:hover {
+    transform: translateY(-5px);
+}
+
+.acceso-card h2 {
+    margin-bottom: 12px;
+}
+
+.acceso-card p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   ANIMACIONES
+   ========================= */
+
+.resumen,
+.seccion-tareas,
+.accesos-rapidos {
+    animation: aparecer 0.7s ease both;
+}
+
+.tarjeta-resumen:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.tarjeta-resumen:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.tarea-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.tarea-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .resumen {
+        grid-template-columns: 1fr;
+    }
+
+    .accesos-rapidos {
+        grid-template-columns: 1fr;
+    }
+
+    .tarea-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tarea-card .boton,
+    .tarea-card .boton-secundario {
+        align-self: flex-start;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .titulo-seccion {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tarjeta-resumen,
+    .tarea-card,
+    .acceso-card {
+        padding: 22px;
+    }
+
+}
+
+
+/* =========================
+   TAREAS - BUSCADOR
+   ========================= */
+
+.buscador {
+    margin-bottom: 45px;
+}
+
+.buscador label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.campo-busqueda {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 700px;
+}
+
+.campo-busqueda input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1px solid var(--beige);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.65);
+    color: var(--cafe);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+.campo-busqueda input:focus {
+    border-color: var(--cafe);
+    box-shadow: 0 0 0 3px rgba(199, 211, 219, 0.55);
+}
+
+
+/* =========================
+   TABLA DE TAREAS
+   ========================= */
+
+.tabla-contenedor {
+    margin-bottom: 40px;
+}
+
+.tabla-scroll {
+    width: 100%;
+    overflow-x: auto;
+
+    background: rgba(255, 255, 255, 0.60);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 22px;
+
+    box-shadow: 0 10px 30px rgba(62, 54, 48, 0.07);
+
+    animation: aparecer 0.7s ease both;
+}
+
+#tablaTareas {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+}
+
+#tablaTareas th {
+    padding: 18px 20px;
+
+    background: var(--azul);
+
+    color: var(--cafe);
+
+    text-align: left;
+
+    font-size: 0.9rem;
+}
+
+#tablaTareas td {
+    padding: 18px 20px;
+
+    border-bottom: 1px solid rgba(62, 54, 48, 0.08);
+
+    vertical-align: middle;
+}
+
+#tablaTareas tbody tr {
+    transition: 0.25s ease;
+}
+
+#tablaTareas tbody tr:hover {
+    background: rgba(199, 211, 219, 0.18);
+}
+
+#tablaTareas tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================
+   BOTÓN DE LA TABLA
+   ========================= */
+
+.boton-tabla {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    background: var(--cafe);
+
+    color: var(--crema);
+
+    border-radius: 999px;
+
+    font-size: 0.85rem;
+
+    font-weight: bold;
+
+    transition: 0.25s ease;
+}
+
+.boton-tabla:hover {
+    background: var(--beige);
+
+    color: var(--crema);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   ESTADOS
+   ========================= */
+
+.estado.proxima {
+    background: var(--crema);
+    color: var(--cafe);
+    border: 1px solid var(--beige);
+}
+
+.estado.entregada {
+    background: var(--beige);
+    color: var(--crema);
+}
+
+
+/* =========================
+   PIE DE TABLA
+   ========================= */
+
+#tablaTareas tfoot td {
+    padding: 16px 20px;
+
+    background: rgba(199, 211, 219, 0.25);
+
+    color: var(--beige);
+
+    font-weight: bold;
+
+    text-align: right;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 650px) {
+
+    .campo-busqueda {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .campo-busqueda .boton-secundario {
+        text-align: center;
+    }
+
+}
+
+
+/* =========================
+   DETALLE DE TAREA
+   ========================= */
+
+.detalle-tarea {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 15px 40px rgba(62, 54, 48, 0.08);
+
+    animation: aparecer 0.7s ease both;
+}
+
+
+/* ENCABEZADO */
+
+.detalle-encabezado {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid rgba(62, 54, 48, 0.10);
+}
+
+.detalle-encabezado h1 {
+    margin: 8px 0 12px;
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.detalle-encabezado p:not(.etiqueta) {
+    line-height: 1.6;
+}
+
+
+/* ESTADO GRANDE */
+
+.estado.grande {
+    flex-shrink: 0;
+
+    padding: 10px 18px;
+
+    font-size: 0.9rem;
+}
+
+
+/* INFORMACIÓN */
+
+.informacion-tarea {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin: 30px 0;
+}
+
+.dato-tarea {
+    padding: 20px;
+
+    background: rgba(199, 211, 219, 0.25);
+
+    border-radius: 18px;
+}
+
+.dato-tarea span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--beige);
+
+    font-size: 0.85rem;
+
+    font-weight: bold;
+}
+
+.dato-tarea strong {
+    color: var(--cafe);
+
+    font-size: 1.05rem;
+}
+
+
+/* DESCRIPCIÓN */
+
+.descripcion-tarea {
+    padding: 30px 0;
+
+    border-top: 1px solid rgba(62, 54, 48, 0.08);
+}
+
+.descripcion-tarea h2 {
+    margin: 8px 0 12px;
+}
+
+.descripcion-tarea p:not(.etiqueta) {
+    max-width: 750px;
+
+    line-height: 1.8;
+}
+
+
+/* ACCIONES */
+
+.acciones-tarea {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.boton-volver {
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    border: 2px solid var(--cafe);
+
+    border-radius: 999px;
+
+    color: var(--cafe);
+
+    font-weight: bold;
+
+    transition: 0.25s ease;
+}
+
+.boton-volver:hover {
+    background: var(--cafe);
+
+    color: var(--crema);
+
+    transform: translateY(-3px);
+}
+
+
+/* MENSAJE */
+
+.mensaje-tarea {
+    margin-top: 20px;
+
+    font-weight: bold;
+
+    color: var(--beige);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 750px) {
+
+    .detalle-tarea {
+        padding: 25px;
+    }
+
+    .detalle-encabezado {
+        flex-direction: column;
+    }
+
+    .informacion-tarea {
+        grid-template-columns: 1fr;
+    }
+
+    .acciones-tarea {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .acciones-tarea .boton,
+    .boton-volver {
+        text-align: center;
+    }
+
+}
+
+/* =========================
+   BUSCAR TAREAS
+   ========================= */
+
+.filtros-busqueda {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr auto;
+    align-items: end;
+    gap: 18px;
+
+    padding: 28px;
+
+    margin-bottom: 50px;
+
+    background: rgba(255, 255, 255, 0.60);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 24px;
+
+    box-shadow: 0 10px 30px rgba(62, 54, 48, 0.07);
+
+    animation: aparecer 0.7s ease both;
+}
+
+.filtro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filtro label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.filtro input,
+.filtro select {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    border: 1px solid var(--beige);
+
+    border-radius: 12px;
+
+    background: var(--crema);
+
+    color: var(--cafe);
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+
+    outline: none;
+}
+
+.filtro input:focus,
+.filtro select:focus {
+    border-color: var(--cafe);
+
+    box-shadow:
+        0 0 0 3px rgba(199, 211, 219, 0.55);
+}
+
+
+/* =========================
+   RESULTADOS
+   ========================= */
+
+.resultados-busqueda {
+    margin-bottom: 40px;
+}
+
+.lista-resultados {
+    display: grid;
+    gap: 18px;
+}
+
+.resultado-tarea {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 24px 28px;
+
+    background: rgba(255, 255, 255, 0.60);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 8px 25px rgba(62, 54, 48, 0.06);
+
+    transition: 0.3s ease;
+
+    animation: aparecer 0.6s ease both;
+}
+
+.resultado-tarea:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 30px rgba(62, 54, 48, 0.10);
+}
+
+.materia-resultado {
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    color: var(--beige);
+
+    font-size: 0.85rem;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+.resultado-tarea h3 {
+    margin: 0 0 7px;
+
+    font-size: 1.2rem;
+}
+
+.resultado-tarea p {
+    margin: 0;
+
+    color: var(--beige);
+}
+
+
+/* =========================
+   ESTADOS
+   ========================= */
+
+.resultado-tarea .estado {
+    flex-shrink: 0;
+}
+
+.resultado-tarea .estado.proxima {
+    background: var(--crema);
+
+    color: var(--cafe);
+
+    border: 1px solid var(--beige);
+}
+
+.resultado-tarea .estado.entregada {
+    background: var(--beige);
+
+    color: var(--crema);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 950px) {
+
+    .filtros-busqueda {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filtros-busqueda .boton {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .filtros-busqueda {
+        grid-template-columns: 1fr;
+        padding: 22px;
+    }
+
+    .resultado-tarea {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+/* =========================
+   FECHAS DE ENTREGA
+   ========================= */
+
+.fechas-contenedor {
+    margin-bottom: 40px;
+}
+
+.lista-fechas {
+    display: grid;
+    gap: 18px;
+}
+
+.fecha-tarea {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    align-items: center;
+    gap: 25px;
+
+    padding: 22px 25px;
+
+    background: rgba(255, 255, 255, 0.60);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 8px 25px rgba(62, 54, 48, 0.06);
+
+    transition: 0.3s ease;
+
+    animation: aparecer 0.6s ease both;
+}
+
+.fecha-tarea:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 30px rgba(62, 54, 48, 0.10);
+}
+
+
+/* =========================
+   NÚMERO DE FECHA
+   ========================= */
+
+.fecha-numero {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--azul);
+
+    border-radius: 20px;
+
+    color: var(--cafe);
+}
+
+.fecha-numero strong {
+    font-size: 1.8rem;
+
+    line-height: 1;
+}
+
+.fecha-numero span {
+    margin-top: 5px;
+
+    font-size: 0.75rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   INFORMACIÓN
+   ========================= */
+
+.fecha-informacion h3 {
+    margin: 5px 0 7px;
+
+    font-size: 1.2rem;
+}
+
+.fecha-informacion p {
+    margin: 0;
+
+    color: var(--beige);
+}
+
+
+/* =========================
+   ESTADO
+   ========================= */
+
+.fecha-tarea .estado {
+    white-space: nowrap;
+}
+
+.fecha-tarea .estado.proxima {
+    background: var(--crema);
+
+    color: var(--cafe);
+
+    border: 1px solid var(--beige);
+}
+
+.fecha-tarea .estado.entregada {
+    background: var(--beige);
+
+    color: var(--crema);
+}
+
+
+/* =========================
+   ANIMACIÓN
+   ========================= */
+
+.fecha-tarea:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.fecha-tarea:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.fecha-tarea:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .fecha-tarea {
+        grid-template-columns: 75px 1fr;
+
+        gap: 18px;
+    }
+
+    .fecha-tarea .estado {
+        grid-column: 2;
+        justify-self: start;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .fecha-tarea {
+        grid-template-columns: 1fr;
+    }
+
+    .fecha-numero {
+        width: 70px;
+        height: 70px;
+    }
+
+    .fecha-tarea .estado {
+        grid-column: auto;
+    }
+
+}
+
+
+/* =========================
+   PERFIL DEL ESTUDIANTE
+   ========================= */
+
+.perfil-contenedor {
+    max-width: 950px;
+    margin: 0 auto 40px;
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 15px 40px rgba(62, 54, 48, 0.08);
+
+    animation: aparecer 0.7s ease both;
+}
+
+
+/* =========================
+   CABECERA DEL PERFIL
+   ========================= */
+
+.perfil-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid rgba(62, 54, 48, 0.10);
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--azul);
+
+    color: var(--cafe);
+
+    border-radius: 50%;
+
+    font-size: 2.5rem;
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 20px rgba(62, 54, 48, 0.10);
+
+    transition: 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.08) rotate(3deg);
+}
+
+.perfil-cabecera h2 {
+    margin: 6px 0;
+
+    font-size: 1.8rem;
+}
+
+.perfil-cabecera p:not(.etiqueta) {
+    margin: 0;
+
+    color: var(--beige);
+}
+
+
+/* =========================
+   DATOS DEL PERFIL
+   ========================= */
+
+.datos-perfil {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin: 30px 0;
+}
+
+.dato-perfil {
+    padding: 22px;
+
+    background: rgba(199, 211, 219, 0.22);
+
+    border-radius: 18px;
+
+    transition: 0.3s ease;
+}
+
+.dato-perfil:hover {
+    transform: translateY(-3px);
+
+    background: rgba(199, 211, 219, 0.35);
+}
+
+.dato-perfil span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--beige);
+
+    font-size: 0.85rem;
+
+    font-weight: bold;
+}
+
+.dato-perfil strong {
+    color: var(--cafe);
+
+    font-size: 1.05rem;
+}
+
+
+/* =========================
+   RESUMEN
+   ========================= */
+
+.resumen-perfil {
+    margin-top: 35px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid rgba(62, 54, 48, 0.10);
+}
+
+.resumen-perfil h2 {
+    margin: 7px 0 25px;
+
+    font-size: 1.8rem;
+}
+
+.estadisticas-perfil {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.estadistica {
+    padding: 25px;
+
+    text-align: center;
+
+    background: var(--crema);
+
+    border: 1px solid rgba(62, 54, 48, 0.08);
+
+    border-radius: 20px;
+
+    transition: 0.3s ease;
+}
+
+.estadistica:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(62, 54, 48, 0.08);
+}
+
+.estadistica strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--cafe);
+
+    font-size: 2.2rem;
+}
+
+.estadistica span {
+    color: var(--beige);
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   BOTÓN DEL PERFIL
+   ========================= */
+
+.acciones-perfil {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 35px;
+}
+
+.acciones-perfil .boton {
+    min-width: 180px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .perfil-contenedor {
+        padding: 25px;
+    }
+
+    .datos-perfil {
+        grid-template-columns: 1fr;
+    }
+
+    .estadisticas-perfil {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .perfil-cabecera {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .perfil-cabecera h2 {
+        font-size: 1.5rem;
+    }
+
+}
+
+
+/* =========================
+   REGISTRAR TAREA
+   ========================= */
+
+.formulario-tarea {
+    max-width: 850px;
+    margin: 0 auto 40px;
+
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 15px 40px rgba(62, 54, 48, 0.08);
+
+    animation: aparecer 0.7s ease both;
+}
+
+
+/* =========================
+   CAMPOS
+   ========================= */
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 22px;
+}
+
+.campo-formulario label {
+    color: var(--cafe);
+
+    font-weight: bold;
+
+    font-size: 0.95rem;
+}
+
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 14px 16px;
+
+    border: 1px solid var(--beige);
+
+    border-radius: 14px;
+
+    background: var(--crema);
+
+    color: var(--cafe);
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
+    border-color: var(--cafe);
+
+    box-shadow:
+        0 0 0 3px rgba(199, 211, 219, 0.55);
+}
+
+.campo-formulario textarea {
+    resize: vertical;
+
+    min-height: 130px;
+}
+
+
+/* =========================
+   ACCIONES
+   ========================= */
+
+.acciones-formulario {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.acciones-formulario .boton {
+    border: none;
+
+    cursor: pointer;
+}
+
+.acciones-formulario .boton-volver {
+    text-align: center;
+}
+
+
+/* =========================
+   MENSAJE
+   ========================= */
+
+#mensajeRegistro {
+    margin-top: 20px;
+
+    text-align: center;
+
+    min-height: 24px;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 650px) {
+
+    .formulario-tarea {
+        padding: 25px;
+    }
+
+    .acciones-formulario {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .acciones-formulario .boton,
+    .acciones-formulario .boton-volver {
+        width: 100%;
+
+        box-sizing: border-box;
+
+        text-align: center;
+    }
+
+}
+
+/* =========================
+   CONSULTAR TAREAS
+   ========================= */
+
+.filtros-consulta {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr auto;
+
+    align-items: end;
+
+    gap: 18px;
+
+    margin-bottom: 45px;
+
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.60);
+
+    border: 1px solid rgba(62, 54, 48, 0.10);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 30px rgba(62, 54, 48, 0.07);
+
+    animation: aparecer 0.7s ease both;
+}
+
+.filtros-consulta > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.filtros-consulta label {
+    color: var(--cafe);
+
+    font-size: 0.9rem;
+
+    font-weight: bold;
+}
+
+.filtros-consulta select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    border: 1px solid var(--beige);
+
+    border-radius: 12px;
+
+    background: var(--crema);
+
+    color: var(--cafe);
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+.filtros-consulta select:focus {
+    border-color: var(--cafe);
+
+    box-shadow:
+        0 0 0 3px rgba(199, 211, 219, 0.55);
+}
+
+
+/* =========================
+   TABLA DE CONSULTA
+   ========================= */
+
+#tablaConsulta {
+    width: 100%;
+
+    min-width: 750px;
+
+    border-collapse: collapse;
+}
+
+#tablaConsulta th {
+    padding: 18px 20px;
+
+    background: var(--azul);
+
+    color: var(--cafe);
+
+    text-align: left;
+
+    font-size: 0.9rem;
+}
+
+#tablaConsulta td {
+    padding: 18px 20px;
+
+    border-bottom: 1px solid rgba(62, 54, 48, 0.08);
+
+    vertical-align: middle;
+}
+
+#tablaConsulta tbody tr {
+    transition: 0.25s ease;
+}
+
+#tablaConsulta tbody tr:hover {
+    background: rgba(199, 211, 219, 0.18);
+}
+
+#tablaConsulta tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================
+   ESTADOS
+   ========================= */
+
+#tablaConsulta .estado.proxima {
+    background: var(--crema);
+
+    color: var(--cafe);
+
+    border: 1px solid var(--beige);
+}
+
+#tablaConsulta .estado.entregada {
+    background: var(--beige);
+
+    color: var(--crema);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .filtros-consulta {
+        grid-template-columns: 1fr;
+    }
+
+    .filtros-consulta .boton {
+        width: 100%;
+
+        text-align: center;
+
+        box-sizing: border-box;
+    }
+
+}
+
+/* ========================================
+   INICIO - NUEVA DISTRIBUCIÓN
+   ======================================== */
+
+.inicio-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 28px 6%;
+    z-index: 2;
+}
+
+.logo-inicio {
+    display: inline-block;
+}
+
+.logo-inicio img {
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 10px 28px rgba(62, 54, 48, 0.12);
+    animation: aparecerLogo 1s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.logo-inicio img:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 16px 35px rgba(62, 54, 48, 0.18);
+}
+
+
+/* CONTENIDO PRINCIPAL */
+
+.inicio-main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 6% 90px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero {
+    width: min(100%, 850px);
+    text-align: center;
+    animation: aparecerHero 0.9s ease;
+}
+
+.hero h1 {
+    margin-bottom: 22px;
+}
+
+.hero-descripcion {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    font-size: 1.08rem;
+    line-height: 1.7;
+}
+
+
+/* ANIMACIONES */
+
+@keyframes aparecerLogo {
+
+    from {
+        opacity: 0;
+        transform: scale(0.65) rotate(-8deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+
+}
+
+@keyframes aparecerHero {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* PIE */
+
+.inicio-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 18px;
+    font-size: 0.85rem;
+    z-index: 2;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 600px) {
+
+    .inicio-header {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .logo-inicio img {
+        width: 115px;
+        height: 115px;
+    }
+
+    .inicio-main {
+        padding: 150px 20px 80px;
+    }
+
+    .hero h1 {
+        font-size: 3.3rem;
+    }
+
+    .hero-descripcion {
+        font-size: 1rem;
+    }
+
+}
+
+
+
+/* ========================================
+   AVISO DEL LOGIN
+   ======================================== */
+
+.aviso-login {
+    margin: 22px 0 25px;
+    padding: 17px 18px;
+    background: rgba(199, 211, 219, 0.28);
+    border-left: 4px solid var(--cafe);
+    border-radius: 12px;
+}
+
+.aviso-login strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--cafe);
+}
+
+.aviso-login p {
+    margin: 0;
+    color: var(--beige);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+
+/* LOGOS DE LOS PANELES */
+
+.logo-menu img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 10px 28px rgba(62, 54, 48, 0.12);
+    animation: aparecerLogo 1s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.logo-menu img:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 16px 35px rgba(62, 54, 48, 0.18);
+}

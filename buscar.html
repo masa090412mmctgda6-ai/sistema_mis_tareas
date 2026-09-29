@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Buscar tareas escolares">
+
+    <title>Buscar | Mis Tareas</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="panel-body">
+
+    <!-- ENCABEZADO -->
+    <header class="barra-superior">
+
+        <a href="estudiante.html" class="logo-menu">
+            <img src="img/logo.png" alt="Logo Mis Tareas">
+        </a>
+
+        <nav aria-label="Navegación principal">
+
+            <a href="estudiante.html">
+                Inicio
+            </a>
+
+            <a href="tareas.html">
+                Mis tareas
+            </a>
+
+            <a href="buscar.html" class="activo">
+                Buscar
+            </a>
+
+            <a href="fechas.html">
+                Fechas
+            </a>
+
+            <a href="perfil.html">
+                Perfil
+            </a>
+
+            <a href="index.html">
+                Salir
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTENIDO -->
+    <main class="contenido-panel">
+
+        <section class="bienvenida">
+
+            <p class="etiqueta">
+                CONSULTA
+            </p>
+
+            <h1>
+                Buscar tareas
+            </h1>
+
+            <p>
+                Encuentra rápidamente una tarea utilizando los filtros.
+            </p>
+
+        </section>
+
+
+        <!-- FILTROS -->
+        <section class="filtros-busqueda">
+
+            <div class="filtro">
+
+                <label for="nombreBusqueda">
+                    Nombre de la tarea
+                </label>
+
+                <input
+                    type="text"
+                    id="nombreBusqueda"
+                    placeholder="Ej. Resolver ejercicios">
+
+            </div>
+
+
+            <div class="filtro">
+
+                <label for="materiaBusqueda">
+                    Materia
+                </label>
+
+                <select id="materiaBusqueda">
+
+                    <option value="">
+                        Todas
+                    </option>
+
+                    <option value="matemáticas">
+                        Matemáticas
+                    </option>
+
+                    <option value="programación">
+                        Programación
+                    </option>
+
+                    <option value="inglés">
+                        Inglés
+                    </option>
+
+                    <option value="historia">
+                        Historia
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filtro">
+
+                <label for="estadoBusqueda">
+                    Estado
+                </label>
+
+                <select id="estadoBusqueda">
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                    <option value="pendiente">
+                        Pendiente
+                    </option>
+
+                    <option value="próxima">
+                        Próxima
+                    </option>
+
+                    <option value="entregada">
+                        Entregada
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="boton"
+                id="btnBuscar">
+
+                Buscar tareas
+
+            </button>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+        <section class="resultados-busqueda">
+
+            <div class="titulo-seccion">
+
+                <div>
+
+                    <p class="etiqueta">
+                        RESULTADOS
+                    </p>
+
+                    <h2>
+                        Tareas encontradas
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div id="resultadosTareas" class="lista-resultados">
+
+                <article class="resultado-tarea">
+
+                    <div>
+
+                        <span class="materia-resultado">
+                            Matemáticas
+                        </span>
+
+                        <h3>
+                            Resolver ejercicios
+                        </h3>
+
+                        <p>
+                            Fecha de entrega: 30/09/2026
+                        </p>
+
+                    </div>
+
+                    <span class="estado pendiente">
+                        Pendiente
+                    </span>
+
+                </article>
+
+
+                <article class="resultado-tarea">
+
+                    <div>
+
+                        <span class="materia-resultado">
+                            Programación
+                        </span>
+
+                        <h3>
+                            Crear página web
+                        </h3>
+
+                        <p>
+                            Fecha de entrega: 02/10/2026
+                        </p>
+
+                    </div>
+
+                    <span class="estado proxima">
+                        Próxima
+                    </span>
+
+                </article>
+
+
+                <article class="resultado-tarea">
+
+                    <div>
+
+                        <span class="materia-resultado">
+                            Inglés
+                        </span>
+
+                        <h3>
+                            Realizar actividad
+                        </h3>
+
+                        <p>
+                            Fecha de entrega: 04/10/2026
+                        </p>
+
+                    </div>
+
+                    <span class="estado pendiente">
+                        Pendiente
+                    </span>
+
+                </article>
+
+
+                <article class="resultado-tarea">
+
+                    <div>
+
+                        <span class="materia-resultado">
+                            Historia
+                        </span>
+
+                        <h3>
+                            Investigación
+                        </h3>
+
+                        <p>
+                            Fecha de entrega: 06/10/2026
+                        </p>
+
+                    </div>
+
+                    <span class="estado entregada">
+                        Entregada
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE -->
+    <footer class="pie-panel">
+
+        <p>
+            © 2026 Mis Tareas · Sistema escolar
+        </p>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

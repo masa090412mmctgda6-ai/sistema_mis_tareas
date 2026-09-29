@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Consultar tareas escolares">
+
+    <title>Consultar tareas | Mis Tareas</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="panel-body">
+
+    <header class="barra-superior">
+
+    <a href="profesor.html" class="logo-menu">
+        <img src="img/logo.png" alt="Logo Mis Tareas">
+    </a>
+
+    <nav aria-label="Navegación principal">
+
+        <a href="profesor.html">
+            Inicio
+        </a>
+
+        <a href="registrar_tarea.html">
+            Registrar tarea
+        </a>
+
+        <a href="consultar_tareas.html" class="activo">
+            Consultar tareas
+        </a>
+
+        <a href="profesor_perfil.html">
+            Perfil
+        </a>
+
+        <a href="index.html">
+            Salir
+        </a>
+
+    </nav>
+
+</header>
+
+
+    <!-- CONTENIDO -->
+    <main class="contenido-panel">
+
+        <section class="bienvenida">
+
+            <p class="etiqueta">
+                ADMINISTRACIÓN
+            </p>
+
+            <h1>
+                Consultar tareas
+            </h1>
+
+            <p>
+                Revisa las tareas registradas y su estado.
+            </p>
+
+        </section>
+
+
+        <!-- FILTROS -->
+        <section class="filtros-consulta">
+
+            <div>
+
+                <label for="filtroMateria">
+                    Materia
+                </label>
+
+                <select id="filtroMateria">
+
+                    <option value="">
+                        Todas
+                    </option>
+
+                    <option value="Matemáticas">
+                        Matemáticas
+                    </option>
+
+                    <option value="Programación">
+                        Programación
+                    </option>
+
+                    <option value="Inglés">
+                        Inglés
+                    </option>
+
+                    <option value="Historia">
+                        Historia
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label for="filtroEstado">
+                    Estado
+                </label>
+
+                <select id="filtroEstado">
+
+                    <option value="">
+                        Todos
+                    </option>
+
+                    <option value="Pendiente">
+                        Pendiente
+                    </option>
+
+                    <option value="Próxima">
+                        Próxima
+                    </option>
+
+                    <option value="Entregada">
+                        Entregada
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="boton"
+                id="btnFiltrar">
+
+                Filtrar
+
+            </button>
+
+        </section>
+
+
+        <!-- TABLA -->
+        <section class="tabla-contenedor">
+
+            <div class="titulo-seccion">
+
+                <div>
+
+                    <p class="etiqueta">
+                        REGISTROS
+                    </p>
+
+                    <h2>
+                        Tareas registradas
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="tabla-scroll">
+
+                <table id="tablaConsulta">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Estudiante
+                            </th>
+
+                            <th>
+                                Materia
+                            </th>
+
+                            <th>
+                                Tarea
+                            </th>
+
+                            <th>
+                                Fecha
+                            </th>
+
+                            <th>
+                                Estado
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Adriana Mateo
+                            </td>
+
+                            <td>
+                                Matemáticas
+                            </td>
+
+                            <td>
+                                Resolver ejercicios
+                            </td>
+
+                            <td>
+                                30/09/2026
+                            </td>
+
+                            <td>
+                                <span class="estado pendiente">
+                                    Pendiente
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Adriana Mateo
+                            </td>
+
+                            <td>
+                                Programación
+                            </td>
+
+                            <td>
+                                Crear página web
+                            </td>
+
+                            <td>
+                                02/10/2026
+                            </td>
+
+                            <td>
+                                <span class="estado proxima">
+                                    Próxima
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Adriana Mateo
+                            </td>
+
+                            <td>
+                                Inglés
+                            </td>
+
+                            <td>
+                                Realizar actividad
+                            </td>
+
+                            <td>
+                                04/10/2026
+                            </td>
+
+                            <td>
+                                <span class="estado pendiente">
+                                    Pendiente
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Adriana Mateo
+                            </td>
+
+                            <td>
+                                Historia
+                            </td>
+
+                            <td>
+                                Investigación
+                            </td>
+
+                            <td>
+                                06/10/2026
+                            </td>
+
+                            <td>
+                                <span class="estado entregada">
+                                    Entregada
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE -->
+    <footer class="pie-panel">
+
+        <p>
+            © 2026 Mis Tareas · Sistema escolar
+        </p>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
